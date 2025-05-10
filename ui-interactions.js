@@ -152,4 +152,4 @@ if (filteredProducts.length === 0) {
       'event_label': 'User stayed 10 seconds'
     });
   }, 10000);
-});
+
