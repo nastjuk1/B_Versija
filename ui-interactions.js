@@ -131,3 +131,25 @@ if (filteredProducts.length === 0) {
       setTimeout(() => resultsContainer.classList.add('hidden'), 300);
     }
   });
+
+  
+  // Metriki
+  document.addEventListener('click', function (event) {
+    var element = event.target;
+    var description = element.innerText || element.alt || element.title || element.id || 'unknown';
+
+    //Google Analytics
+    gtag('event', 'click', {
+      'event_category': 'User Interaction',
+      'event_label': description,
+      'value': 1
+    });
+  });
+
+  setTimeout(function () {
+    gtag('event', 'engaged_10s', {
+      'event_category': 'Timing',
+      'event_label': 'User stayed 10 seconds'
+    });
+  }, 10000);
+});
