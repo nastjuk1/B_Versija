@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mana groza lapa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Veikaliņš</a>
+
+      <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Meklēšanas..." />
+        <div id="search-results" class="search-results hidden"></div>
+      </div>
+
+      <div class="icons">
+        <a href="indexcart.html" class="cart-link">
+          <span class="cart-icon">
+            <img src="images/cart-large-minimalistic_svgrepo.com.svg" alt="Cart" />
+            <span class="cart-count hidden">0</span>
+          </span>
+        </a>
+
+        <div class="cart-dropdown">
+          <h4>Mani produkti</h4>
+          <ul class="cart-items"></ul>
+          <div class="cart-total">
+            <strong>Kopā: </strong>€<span id="total-price">0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="cart-page">
+    <h1 class="cart-title">Tavs grozs</h1>
+
+    <div class="cart-main">
+      <div class="cart-items cart-items-list"></div>
+
+      <aside class="cart-summary">
+        <h3>Kopsavilkums</h3>
+
+        <div class="summary-line">
+          <span>Preču kopsumma:</span>
+          <span id="subtotal"></span>
+        </div>
+        <div class="summary-line">
+          <span>Piegāde:</span>
+          <span>€2.50</span>
+        </div>
+        <div class="summary-line total">
+          <span>Kopā:</span>
+          <span id="grand-total"></span>
+        </div>
+
+        <button id="startCheckout" class="checkout-btn">Izveidot pasūtījumu</button>
+
+        <div id="checkoutProcess" class="checkout-process hidden">
+          <div class="step-indicator">
+            <span class="dot active"></span>
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+            <span class="dot"></span>
+          </div>
+
+          <form id="checkoutForm">
+            <div class="step step-1 active">
+              <label for="userName">Vārds</label>
+              <input type="text" id="userName" required placeholder="Tavs vārds" />
+              <div id="errorName" class="error-message"></div>
+              <button type="button" class="next-btn">Tālāk</button>
+            </div>
+
+            <div class="step step-2">
+              <label for="userEmail">E-pasts</label>
+              <input type="email" id="userEmail" required placeholder="example@email.com" />
+              <div id="errorEmail" class="error-message"></div>
+              <button type="button" class="next-btn">Tālāk</button>
+            </div>
+
+            <div class="step step-3">
+              <label for="userAddress">Adrese</label>
+              <input type="text" id="userAddress" required placeholder="Tava adrese" />
+              <div id="errorAddress" class="error-message"></div>
+              <button type="submit" class="checkout-btn">Pabeigt pasūtījumu</button>
+            </div>
+          </form>
+
+          <div id="loading" class="loading-message hidden">Pasūtījums tiek apstrādāts...</div>
+          <div id="thankYou" class="thank-you-message hidden">
+            <p>Paldies par pasūtījumu!</p>
+            <a href="index.html" id="backHomeBtn">Atgriezties uz sākumlapu</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="logofooter">
+      <a href="index.html"><div class="logo">Veikaliņš</div></a>
+    </div>
+  </footer>
+
+  <div class="c">ANASTASIJA IĻJUČONOKA 2025</div>
+
+  <div id="undo-toast" class="undo-toast hidden">
+    Prece noņemta.
+    <button id="undoBtn">Atcelt</button>
+  </div>
+
+  <script src="products-data.js"></script>
+  <script src="ui-interactions.js"></script>
+  <script src="cart.js"></script>
+  <script src="product-detail.js"></script>
+
+</body>
+</html>
