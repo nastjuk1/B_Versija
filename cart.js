@@ -339,50 +339,57 @@ setTimeout(() => checkoutProcess.classList.add('show'), 10);
       dot.classList.toggle('active', idx === currentStep);
     });
   }
-
-  function validateStep(step) {
-    let valid = true;
-    if (step === 0) {
-      const nameInput = document.getElementById('userName');
-      const errorName = document.getElementById('errorName');
-      const name = nameInput.value.trim();
-      const nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
-      if (!nameRegex.test(name)) {
-        errorName.textContent = 'Vārdam jāsākas ar lielo burtu, tikai latīņu burti un vismaz 3 burti.';
-        nameInput.classList.add('invalid');
-        valid = false;
-      } else {
-        errorName.textContent = '';
-        nameInput.classList.remove('invalid');
-      }
-    }
-    if (step === 1) {
-      const emailInput = document.getElementById('userEmail');
-      const errorEmail = document.getElementById('errorEmail');
-      const email = emailInput.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        errorEmail.textContent = 'Lūdzu ievadi derīgu e-pastu.';
-        emailInput.classList.add('invalid');
-        valid = false;
-      } else {
-        errorEmail.textContent = '';
-        emailInput.classList.remove('invalid');
-      }
-    }
-    if (step === 2) {
-      const addrInput = document.getElementById('userAddress');
-      const errorAddr = document.getElementById('errorAddress');
-      const addr = addrInput.value.trim();
-      if (addr.length < 5) {
-        errorAddr.textContent = 'Adresei jābūt vismaz 5 rakstzīmēm.';
-        addrInput.classList.add('invalid');
-        valid = false;
-      } else {
-        errorAddr.textContent = '';
-        addrInput.classList.remove('invalid');
-      }
-    }
-    return valid;
+  function shakeInput(input) {
+    input.classList.add('shake');
+    setTimeout(() => {
+      input.classList.remove('shake');
+    }, 400); 
   }
-
+function validateStep(step) {
+  let valid = true;
+  if (step === 0) {
+    const nameInput = document.getElementById('userName');
+    const errorName = document.getElementById('errorName');
+    const name = nameInput.value.trim();
+    const nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+    if (!nameRegex.test(name)) {
+      errorName.textContent = 'Vārdam jāsākas ar lielo burtu, tikai latīņu burti un vismaz 3 burti.';
+      nameInput.classList.add('invalid');
+      shakeInput(nameInput);
+      valid = false;
+    } else {
+      errorName.textContent = '';
+      nameInput.classList.remove('invalid');
+    }
+  }
+  if (step === 1) {
+    const emailInput = document.getElementById('userEmail');
+    const errorEmail = document.getElementById('errorEmail');
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errorEmail.textContent = 'Lūdzu ievadi derīgu e-pastu.';
+      emailInput.classList.add('invalid');
+      shakeInput(emailInput);
+      valid = false;
+    } else {
+      errorEmail.textContent = '';
+      emailInput.classList.remove('invalid');
+    }
+  }
+  if (step === 2) {
+    const addrInput = document.getElementById('userAddress');
+    const errorAddr = document.getElementById('errorAddress');
+    const addr = addrInput.value.trim();
+    if (addr.length < 5) {
+      errorAddr.textContent = 'Adresei jābūt vismaz 5 rakstzīmēm.';
+      addrInput.classList.add('invalid');
+      shakeInput(addrInput);
+      valid = false;
+    } else {
+      errorAddr.textContent = '';
+      addrInput.classList.remove('invalid');
+    }
+  }
+  return valid;
+}
