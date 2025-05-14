@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  // Lightbox
   const mainImage = document.getElementById('main-image');
   const thumbnails = document.querySelectorAll('.thumbnail');
   const leftArrow = document.querySelector('.left-arrow');
@@ -36,36 +35,30 @@ function updateMainImage(index) {
   });
 });
 
-// ---------------------------
-// ГАЛЕРЕЯ + LIGHTBOX
-// ---------------------------
-
 const mainImage = document.getElementById('main-image');
 const thumbnails = document.querySelectorAll('.thumbnail');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
 let currentIndex = 0;
-const images = Array.from(thumbnails).map(img => img.dataset.src); // Сохраняем пути изображений из data-src
+const images = Array.from(thumbnails).map(img => img.dataset.src); 
 
 function updateMainImage(index) {
   if (!mainImage) return;
   currentIndex = index;
   mainImage.style.opacity = 0;
   setTimeout(() => {
-    mainImage.src = images[currentIndex];  // Обновляем изображение
+    mainImage.src = images[currentIndex]; 
     thumbnails.forEach(thumb => thumb.classList.remove('active-thumb'));
-    thumbnails[currentIndex].classList.add('active-thumb');  // Подсвечиваем активную миниатюру
+    thumbnails[currentIndex].classList.add('active-thumb');  
     mainImage.style.opacity = 1;
   }, 200);
 }
 
-// Клик по миниатюре
 thumbnails.forEach((thumb, index) => {
   thumb.addEventListener('click', () => updateMainImage(index));
 });
 
-// Листание влево
 if (leftArrow) {
   leftArrow.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -73,7 +66,6 @@ if (leftArrow) {
   });
 }
 
-// Листание вправо
 if (rightArrow) {
   rightArrow.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % images.length;
@@ -81,19 +73,16 @@ if (rightArrow) {
   });
 }
 
-// Функция для открытия lightbox
 function openLightbox() {
   const src = document.getElementById("main-image")?.src;
   document.getElementById("lightbox-image").src = src;
   document.getElementById("lightbox-modal").classList.remove("hidden");
 }
 
-// Функция для закрытия lightbox
 function closeLightbox() {
   document.getElementById("lightbox-modal").classList.add("hidden");
 }
 
-// Закрытие lightbox при клике вне изображения
 document.addEventListener("click", function(event) {
   const modal = document.getElementById("lightbox-modal");
   const image = document.getElementById("lightbox-image");

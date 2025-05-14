@@ -1,4 +1,3 @@
-/* === БАЗОВЫЕ СТИЛИ === */
 body {
   width: 100%;
   margin: 0;
@@ -7,8 +6,6 @@ body {
   color: #2c2c2c;
 }
 
-
-/* === HEADER И FOOTER === */
 header,
 footer {
   background-color: #DCD6F7;
@@ -34,7 +31,7 @@ font-family: 'Playfair Display', serif;
 .search-bar {
   width: 100%;
   padding: 8px;
-  border: 2px solid #ddd; /* мягкая рамка */
+  border: 2px solid #ddd; 
   border-radius: 25px;
   font-size: 16px;
   outline: none;
@@ -43,8 +40,8 @@ font-family: 'Playfair Display', serif;
   background-color: #f9f9f9;
 }
 .search-bar:focus {
-  border-color: #8B87A4; /* синий цвет при фокусе */
-  box-shadow: 0 0 10px rgba(0, 239, 231, 0.3); /* легкое свечение */
+  border-color: #8B87A4; 
+  box-shadow: 0 0 10px rgba(0, 239, 231, 0.3); 
 }
 .icons {
   display: flex;
@@ -93,20 +90,16 @@ footer {
 }
 
 .c {
-  background-color: #f5f0f5;      /* Синий фон */
+  background-color: #f5f0f5; 
   width: 100%;    
-color: #8B87A4;
-font-size: 0.9rem; 
-box-sizing: border-box;  
-            /* Ширина блока по всей странице */
-        text-align: center;     /* Выравнивание текста по правому краю */
-                 /* Цвет текста */
-  padding: 0.2rem;                /* Отступы для красоты */
+  color: #8B87A4;
+  font-size: 0.9rem; 
+  box-sizing: border-box;  
+  text-align: center; 
+  padding: 0.2rem;            
   box-sizing: border-box;       
 }
 
-
-/* === HERO === */
     .hero {
       position: relative;
       width: 100%;
@@ -213,9 +206,9 @@ box-sizing: border-box;
 
   .hero button:hover, .shop-btn:hover {
     background-color: #c0e0d6;
-transform: scale(1.05);
+    transform: scale(1.05);
   }
-  /* Респонсив дизайн */
+
   @media (max-width: 1024px) {
   .hero {
     height: 350px;
@@ -267,7 +260,7 @@ transform: scale(1.05);
     padding: 6px 14px;
   }
 }
-/* === ПРОДУКТЫ === */
+
 .products {
   background-color: #fff;
   padding: 40px 20px;
@@ -369,8 +362,6 @@ transform: scale(1.05);
   font-weight: bold;
 }
 
-/* === СТИЛЬ КОРЗИНЫ (Cart Dropdown) === */
-/* === CART DROPDOWN — MODERN 2025 STYLE === */
 .cart-container {
   position: relative;
 }
@@ -560,8 +551,6 @@ transform: scale(1.05);
   animation: cartItemFadeOut 0.4s forwards;
 }
 
-/* === ФИЛЬТРЫ === */
-
 .filter-toggle-btn {
 position: relative;
  display: inline-block;
@@ -582,7 +571,6 @@ color: #333;
   transform: scale(1.05);
 }
 
-/* Скрытая выезжающая панель */
 .filter-panel {
   position: fixed;
   top: 0;
@@ -598,7 +586,6 @@ color: #333;
   border-bottom-left-radius: 20px;
 }
 
-/* Активное состояние */
 .filter-panel.active {
   right: 0;
 }
@@ -670,7 +657,8 @@ color: #333;
 .close-filter:hover {
   color: #4CE0A2;
   transform: rotate(90deg);
-}/* === ПОИСК === */
+}
+
 .search-results {
   position: absolute;
   top: 100%;
@@ -802,7 +790,6 @@ color: #333;
   padding: 10px;
 }
 
-/* === СТРАНИЦА ПРОДУКТА === */
     .back-button:hover {
       background-color: #bfe2d8;
     }
@@ -915,7 +902,7 @@ color: #333;
   border-radius: 16px;
   overflow: hidden;
   width: 100%;
-  padding-top: 100%; /* квадратный контейнер */
+  padding-top: 100%; 
 }
 
 .product-main-img {
@@ -924,7 +911,7 @@ color: #333;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* адаптируется без искажений */
+  object-fit: cover; 
   border-radius: 16px;
   transition: opacity 0.3s ease, transform 0.4s ease;
   cursor: zoom-in;
@@ -981,7 +968,7 @@ color: #333;
 .nav-arrow:hover {
   background-color: rgba(255, 255, 255, 1);
 }
-/* LIGHTBOX */
+
 .lightbox {
   display: flex;
   align-items: center;
@@ -1027,7 +1014,6 @@ color: #333;
   to { opacity: 1; }
 }
 
-/* === СТРАНИЦА КОРЗИНЫ === */
 .cart-page {
   padding: 60px 20px;
   background-color: #f9f9f9;

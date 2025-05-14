@@ -1,6 +1,3 @@
-// ---------------------------
-// КОРЗИНА (localStorage)
-// ---------------------------
 function showToast(message = "Prece pievienota grozam!") {
   const toast = document.getElementById("toast");
   if (!toast) return;
@@ -34,17 +31,17 @@ function addToCart(product) {
   saveCart(cart);
   updateCartDisplay();
 
-  // Открыть cart-dropdown
+
   const cartDropdown = document.querySelector(".cart-dropdown");
 if (cartDropdown) {
   cartDropdown.classList.remove("hidden");
-  cartDropdown.style.display = "block"; // <-- добавляем на всякий случай
+  cartDropdown.style.display = "block"; 
 const cartIcon = document.querySelector('.cart-icon');
 if (cartIcon) {
   cartIcon.classList.add('pulsing');
   setTimeout(() => cartIcon.classList.remove('pulsing'), 400);
 }
-  // Автоматически скрыть через 4 секунды (если нужно)
+
   setTimeout(() => {
     cartDropdown.classList.add("hidden");
     cartDropdown.style.display = "none";
@@ -133,7 +130,6 @@ function changeQuantity(productName, amount) {
   saveCart(cart);
   updateCartDisplay();
   
-  // Показываем всплывающее сообщение
   showAddedMessage();
 }
 
@@ -144,10 +140,6 @@ function removeItem(productName) {
   saveCart(cart);
   location.reload();
 }
-
-// ---------------------------
-// АНИМАЦИЯ И ДОБАВЛЕНИЕ ТОВАРА
-// ---------------------------
 
 function animateAndAddToCart(productElement) {
   const productImage = productElement.querySelector('.product-img');
@@ -181,10 +173,6 @@ function animateAndAddToCart(productElement) {
   const cartDropdown = document.querySelector(".cart-dropdown");
   if (cartDropdown) cartDropdown.classList.remove("hidden");
 }
-
-// ---------------------------
-// НАЧАЛО: ОБРАБОТКА КНОПОК
-// ---------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
   updateCartDisplay();
@@ -247,7 +235,6 @@ function changeQuantity(productName, delta) {
   saveCart(cart);
   updateCartDisplay();
 
-  // Дополнительно: если на странице корзины, обновляем только нужный товар
   if (document.querySelector('.cart-page')) {
     const cartItemsList = document.querySelector('.cart-items-list');
     cartItemsList.innerHTML = '';
@@ -318,10 +305,8 @@ setTimeout(() => checkoutProcess.classList.add('show'), 10);
     loading.classList.add('hidden');
     thankYou.classList.remove('hidden');
 
-    // Обнуляем корзину ТОЛЬКО после загрузки и показа сообщения
     localStorage.removeItem('cart');
 
-    // Также обновим DOM
     document.querySelector('.cart-items-list').innerHTML = '';
     document.querySelector('.cart-count').textContent = '0';
     document.getElementById('total-price').textContent = '0.00';

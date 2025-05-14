@@ -1,6 +1,6 @@
-// UI: DOMContentLoaded и фильтры
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Фильтр
+
   const toggleBtn = document.querySelector(".filter-toggle-btn");
   const filterPanel = document.querySelector(".filter-panel");
   const closeFilter = document.querySelector(".close-filter");
@@ -10,15 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     closeFilter.addEventListener("click", () => filterPanel.classList.remove("active"));
   }
 
-  // Применение фильтров
+
   const applyFiltersBtn = document.getElementById("apply-filters");
   const categorySelect = document.getElementById("category");
   const sortSelect = document.getElementById("sort");
   const productGrid = document.querySelector(".product-grid");
 
-  // ВАЖНО: выбираем только карточки товаров напрямую из .product-grid
   let products = Array.from(document.querySelectorAll(".product-grid > .product"));
-  const originalProducts = products.map(p => p.cloneNode(true)); // сохраняем копии
+  const originalProducts = products.map(p => p.cloneNode(true)); 
 
   if (applyFiltersBtn && categorySelect && sortSelect && products.length && productGrid) {
     const loadingSpinner = document.createElement("div");
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Слайдер
   const slides = document.querySelectorAll('.slide');
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
