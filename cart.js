@@ -296,6 +296,13 @@ setTimeout(() => checkoutProcess.classList.add('show'), 10);
 
  checkoutForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  const cart = getCart();
+  if (cart.length === 0) {
+    showToast("Jūsu grozs ir tukšs. Lūdzu, pievienojiet preces pirms pasūtījuma noformēšanas.");
+    return;
+  }
+
   if (!validateStep(2)) return;
 
   checkoutForm.classList.add('hidden');
